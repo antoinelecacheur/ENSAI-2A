@@ -2,4 +2,4 @@
 
 ## Présentation
 
-:arrow_forward: [Les diapos](https://antoinelecacheur.github.io/ENSAI-2A/#/)
+:arrow_forward: [Les diapos](https://antoinelecacheur.github.io/ENSAI-2A/index.html)
