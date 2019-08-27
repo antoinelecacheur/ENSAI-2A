@@ -1,0 +1,202 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>TP1 - DAO</title>
+
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/black.css">
+
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="lib/css/zenburn.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css'
+			: 'css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section>
+				<section>
+					<h2>Découpage en couches</h2>
+				</section>
+				<section>
+					<ul>
+						<li class="fragment">Couche de présentation, IHM (User Interface)</li>
+						<li class="fragment">Couche métier (Business Logic)</li>
+						<li class="fragment">La couche d'accès aux données (Data Access)</li>
+					</ul>
+				</section>
+
+				<section>
+					<h3>Couche de présentation</h3>
+					<ul>
+						<li class="fragment">Permet l'interaction entre un utilisateur et votre application</li>
+						<li class="fragment">Regroupe tout ce qui à trait à l'affichage</li>
+						<li class="fragment"><b>En général :</b> une page web, une application mobile...</li>
+						<li class="fragment"><b>Dans le cadre des projets informatiques :</b> c'est la console</li>
+					</ul>
+				</section>
+
+				<section>
+					<h3>Couche métier</h3>
+					<ul>
+						<li class="fragment">Aussi appelée couche 'logique' de l'application</li>
+						<li class="fragment">Crée et manipule des objets</li>
+						<li class="fragment">Effectue les traitements sur ces objets</li>
+						<li class="fragment">Fait appel à des <a href="https://api.imgflip.com/" target="_blank">web
+								services</a></li>
+						<li class="fragment"><b>Exemple :</b> pour twitter un objet métier essentiel est le tweet. </li>
+						<li class="fragment">Il se caractérise par son contenu (dont la taille est limitée), est associé
+							à des commentaires, etc.</li>
+					</ul>
+				</section>
+
+				<section>
+					<h3>Couche DAO</h3>
+					<ul>
+						<li class="fragment">Data Access Object</li>
+						<li class="fragment">Répond à la question : <b>Comment stocker nos données "métiers" ?</b></li>
+						<li class="fragment">Classe technique DAO - Persiste les données d'une classe métier</li>
+						<li class="fragment">Permet en particulier de faire le lien avec une base de données</li>
+						<li class="fragment">Expose donc les méthodes <a
+								href="https://fr.wikipedia.org/wiki/CRUD">CRUD</a> : ajouter, lire, modifier ou
+							supprimer des données</li>
+					</ul>
+				</section>
+			</section>
+
+			<section>
+				<section>
+					<h3>L'intérêt des couches</h3>
+					<ul>
+						<li class="fragment">On sait qu'une classe DAO implémentera les méthodes create, read, update,
+							delete</li>
+						<li class="fragment">On peut donc les appeler dans une autre couche</li>
+						<li class="fragment">On ne se soucie pas de l'implémentation de ces méthodes</li>
+						<li class="fragment">Si l'implémentation change, ça ne change pas les appels qu'on en fait dans
+							les autres couches</li>
+						<li class="fragment"><b>Exemple : </b>changer de gestionnaire de BDD</li>
+						<li class="fragment">Facilite le travail en groupe</li>
+					</ul>
+
+				</section>
+			</section>
+
+			<section>
+				<section>
+					<h2>TP1 - DAO</h2>
+				</section>
+				<section>
+					<h3>Nouvel IDE : PyCharm</h3>
+					<ul>
+						<li class="fragment">Mieux adapté que Spyder pour le développement d'application</li>
+						<li class="fragment">De nombreux autres IDE existent, Visual Studio Code est également
+							disponible pour les projets infos</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Une librairie pour gérer les connexions à la BDD : <a href="http://initd.org/psycopg/docs/"
+							target="_blank">psycopg2</a></h3>
+				</section>
+				<section>
+					<h3>Petit point sur l'injection SQL</h3>
+					<ul>
+						<li class="fragment">SELECT * from admins WHERE login='admin' AND password='$password'</li>
+						<li class="fragment">Imaginons qu'on envoie, pour password la valeur : " 'OR 1=1 -- "</li>
+						<li class="fragment">SELECT * from admins WHERE login='admin' AND password='' OR 1=1</li>
+						<li class="fragment">L'utilisateur arrive alors à s'authentifier et accéder à l'application !
+						</li>
+					</ul>
+				</section>
+
+				<section>
+					<h3>Différents moyens d'empêcher l'injection SQL</h3>
+					<ul>
+						<li class="fragment">Échapper les caractères spéciaux</li>
+						<li class="fragment">Utiliser une requête préparée </li>
+						<li class="fragment">psycopg2 s'occupe d'échapper les caractères spéciaux pour nous !</li>
+					</ul>
+				</section>
+
+			</section>
+
+			<section>
+				<section>
+					<h3>Récupérer le TP : introduction à GIT</h3>
+					<ul>
+						<li class="fragment">Logiciel de gestion de versions décentralisé</li>
+						<li class="fragment">Gérer un dépôt de fichiers partagé par plusieurs personnes</li>
+						<li class="fragment">Chaque ajout de fichiers (<b>commit</b>) est enregistrée en tant que nouvelle version, on conserve donc l'historique de tous les changements</li>
+						<li class="fragment">Gérer les conflits lorsque plusieurs personnes travaillent sur le même projet</li>
+					</ul>
+				</section>
+
+				<section>
+						<h3>Un repository GIT ?</h3>
+						<ul>
+							<li class="fragment">Repository = dépôt</li>
+							<li class="fragment">Repository local et repository distant</li>
+							<li class="fragment">Chaque ajout de fichiers (<b>commit</b>) est enregistrée en tant que nouvelle version, on conserve donc l'historique de tous les changements</li>
+							<li class="fragment">Gérer les conflits lorsque plusieurs personnes travaillent sur le même projet</li>
+						</ul>
+					</section>
+
+
+			</section>
+
+
+
+
+		</div>
+	</div>
+
+	<script src="lib/js/head.min.js"></script>
+	<script src="js/reveal.js"></script>
+
+
+	<script>
+		// More info about config & dependencies:
+		// - https://github.com/hakimel/reveal.js#configuration
+		// - https://github.com/hakimel/reveal.js#dependencies
+		Reveal.initialize({
+			dependencies: [{
+				src: 'plugin/markdown/marked.js'
+			}, {
+				src: 'plugin/markdown/markdown.js'
+			}, {
+				src: 'plugin/notes/notes.js',
+				async: true
+			}, {
+				src: 'plugin/highlight/highlight.js',
+				async: true,
+				callback: function () {
+					hljs.initHighlightingOnLoad();
+				}
+			}],
+			// Display the page number of the current slide
+			slideNumber: true,
+			// Push each slide change to the browser history
+			history: true,
+
+			// Enable slide navigation via mouse wheel
+			mouseWheel: true,
+			// 			width : "80%",
+			// 			height : "80%"
+		});
+		Reveal.configure({ slideNumber: 'c/t' });
+	</script>
+</body>
+
+</html>
