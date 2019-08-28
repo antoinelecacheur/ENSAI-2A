@@ -28,6 +28,15 @@
 	<div class="reveal">
 		<div class="slides">
 			<section>
+				<h3>Antoine Lecacheur</h3>
+				<h4>Analyste développeur au SNDI - Orléans</h4>
+				<ul>
+					<li>Mail pro : antoine.lecacheur@insee.fr</li>
+					<li>Mail perso : antoine.lecacheur@hotmail.fr</li>
+				</ul>
+
+			</section>
+			<section>
 				<section>
 					<h2>Découpage en couches</h2>
 				</section>
@@ -113,9 +122,9 @@
 				<section>
 					<h3>Petit point sur l'injection SQL</h3>
 					<ul>
-						<li class="fragment">SELECT * from admins WHERE login='admin' AND password='$password'</li>
+						<li class="fragment"><pre>SELECT * from admins WHERE login='admin' AND password='$password'</pre></li>
 						<li class="fragment">Imaginons qu'on envoie, pour password la valeur : " 'OR 1=1 -- "</li>
-						<li class="fragment">SELECT * from admins WHERE login='admin' AND password='' OR 1=1</li>
+						<li class="fragment"><pre>SELECT * from admins WHERE login='admin' AND password='' OR 1=1</pre></li>
 						<li class="fragment">L'utilisateur arrive alors à s'authentifier et accéder à l'application !
 						</li>
 					</ul>
@@ -138,22 +147,38 @@
 					<ul>
 						<li class="fragment">Logiciel de gestion de versions décentralisé</li>
 						<li class="fragment">Gérer un dépôt de fichiers partagé par plusieurs personnes</li>
-						<li class="fragment">Chaque ajout de fichiers (<b>commit</b>) est enregistrée en tant que nouvelle version, on conserve donc l'historique de tous les changements</li>
-						<li class="fragment">Gérer les conflits lorsque plusieurs personnes travaillent sur le même projet</li>
+						<li class="fragment">Chaque ajout de fichiers (<b>commit</b>) est enregistrée en tant que
+							nouvelle version, on conserve donc l'historique de tous les changements</li>
+						<li class="fragment">Gérer les conflits lorsque plusieurs personnes travaillent sur le même
+							projet</li>
 					</ul>
 				</section>
 
 				<section>
-						<h3>Un repository GIT ?</h3>
-						<ul>
-							<li class="fragment">Repository = dépôt</li>
-							<li class="fragment">Repository local et repository distant</li>
-							<li class="fragment">Chaque ajout de fichiers (<b>commit</b>) est enregistrée en tant que nouvelle version, on conserve donc l'historique de tous les changements</li>
-							<li class="fragment">Gérer les conflits lorsque plusieurs personnes travaillent sur le même projet</li>
-						</ul>
-					</section>
+					<h3>Un repository GIT ?</h3>
+					<ul>
+						<li class="fragment">Repository = dépôt</li>
+						<li class="fragment">Repository local et repository distant</li>
+						<li class="fragment">Chaque ajout de fichiers (<b>commit</b>) est enregistrée en tant que
+							nouvelle version, on conserve donc l'historique de tous les changements</li>
+						<li class="fragment">Gérer les conflits lorsque plusieurs personnes travaillent sur le même
+							projet</li>
+					</ul>
+				</section>
 
+				<section>
+					<h3>Les commandes git pour le TP via git bash</h3>
+					<ul>
+						<li class="fragment">Toutes les commandes git commencent par.. <b>git</b></li>
+						<li class="fragment">Cloner un répertoire <b>distant</b> dans un dossier <b>local</b><pre><code>git clone url-github nom-de-dossier-pour-cloner</code></pre></li>
+						<li class="fragment">Ajoute tous les fichiers du répertoire à l'index Git <pre><code>git add .</code></pre></li>
+						<li class="fragment">Envoie l'ensemble des fichiers de l'index sur le repository local<pre><code>git commit -m "message de commit"</code></pre></li>
+					</ul>
+				</section>
+			</section>
 
+			<section>
+				<h1>Place au TP !</h1>
 			</section>
 
 
