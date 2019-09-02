@@ -1,0 +1,272 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Projet info 2A</title>
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/sky.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/gc.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css'
+            : 'css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+</head>
+
+<body>
+    <div class="reveal">
+        <div class="slides">
+            <section>
+                <h1>Projet Info 2A</h1>
+                <h2>BreweryDB</h2>
+            </section>
+            <section>
+                <section>
+                    <h2>Rappel du besoin</h2>
+                </section>
+                <section>Réaliser une application permettant de chercher des informations pour devenir un érudit sur le
+                    monde de la bière !
+                </section>
+
+                <section>
+                    <h3>Fonctionnalités de base</h3>
+                    <ul>
+                        <li class="fragment">Inscription - Connexion</li>
+                        <li class="fragment">Récupérer la liste des bières connues et leur catégorie, et la liste des
+                            ingrédients</li>
+                        <li class="fragment">Créer une fonction de recherche de bières</li>
+                        <li class="fragment">Associer une bière à des ingrédients supplémentaires</li>
+                        <li class="fragment">Permettre aux utilisateurs de rajouter, modifier ou supprimer différentes
+                            informations</li>
+                    </ul>
+
+                </section>
+                <section>
+                    <h3>Fonctionnalités avancées</h3>
+                    <ul>
+                        <li class="fragment">Mettre en évidence des événements relatifs au monde de la bière
+                        </li>
+                        <li class="fragment">Intégrer les informations relatives aux brasseries, y associer des listes
+                            de bières qui y sont servies</li>
+                        <li class="fragment">Gérer les associations (guild)</li>
+                    </ul>
+                </section>
+            </section>
+
+            <section>
+                <section>
+                    <h2>API BreweryDB</h2>
+                </section>
+                <section>
+                    <h3>Une API ?</h3>
+                    <ul>
+                        <li class="fragment">API = Application Programming Interface</li>
+                        <li class="fragment">Ensemble normalisé de classes, de méthodes ou de fonctions qui sert de
+                            façade par laquelle un logiciel offre des services à d'autres logiciels</li>
+                    </ul>
+                </section>
+                <section>
+                    <h3>Une API ou un web service ?</h3>
+                    <ul>
+                        <li class="fragment">API est plus large, peut être une bibliothèque logicielle ou un web service
+                        </li>
+                        <li class="fragment">La spécificité du web service : on passe par le web pour utiliser l'API
+                        </li>
+                    </ul>
+                </section>
+                <section>
+                    <h3>D'accord... Mais concrètement ?</h3>
+                    <ul>
+                        <li class="fragment">Exemple : <a href="https://api.imgflip.com/" target="_blank">Web service de
+                                memes</a></li>
+
+                        <li class="fragment">Le format des données envoyées : <b>JSON</b>(JavaScript Object Notation).
+                            <b>XML</b></li>
+                        <li class="fragment">Autre format courant : <b>XML</b></li>
+                    </ul>
+                </section>
+
+
+                <section>
+                    <h3>Comprendre le format JSON</h3>
+                    <pre><code>
+{
+    "success": true,
+    "tableau": [
+    {
+        "id": 1,
+        "name": "Chaine de caractères"
+    },
+    {
+        "id": 2,
+        "name":"Deuxième objet de mon tableau"
+    }
+    ],
+    "objet" : {
+        "titre": "sous-propriété de l'objet",
+        "proprieteNulle": null
+    }
+}
+                    </code>
+                    </pre>
+                </section>
+
+            </section>
+
+            <section>
+                <section>
+                    <h2>L'api BreweryDB</h2>
+                </section>
+                <section>
+                    <h3><a href="https://www.brewerydb.com/developers/docs" target="_blank"></a>La documentation</h3>
+                    <ul>
+                        <li class="fragment">Pour pouvoir utiliser l'api, il faut d'abord s'inscrire puis <a
+                                href="https://www.brewerydb.com/developers/apps" target="_blank">une clé vous sera
+                                fournie</a></li>
+                        <li class="fragment">Vous pouvez avoir une clé par personne, mais votre application n'utilisera
+                            qu'une seule clé pour tout le groupe</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>Comment utiliser l'API ?</h3>
+                    <pre><code>https://sandbox-api.brewerydb.com/v2/:endpoint/?key=:votreCle</code></pre>
+                    On effectuera les requêtes dans le navigateur pour l'instant (ou via insomnia si vous voulez
+                    essayer)
+                </section>
+
+                <section>
+                    <h3>Un endpoint ?</h3>
+                    C'est une adresse pour récupérer un service. Les endpoints que vous pouvez utiliser sont fournis
+                    dans la doc,
+                    et en particulier vous vous servirez de "Beer", "Category" et "Ingredient" pour les fonctionnalités
+                    attendues.
+                    Vous êtes libres d'explorer différentes pistes pour choisir ce que vous voulez intégrer dans votre application.
+                </section>
+
+                <section>
+                    <h3>Request Parameters</h3>
+                    Votre clé <b>?key=:cle</b> est un paramètre de requête. Vous pouvez en rajouter :<br />
+                    <pre><code>https://sandbox-api.brewerydb.com/v2/:endpoint/?key=:votreCle&:requestParam=:valeur</code></pre>
+
+                </section>
+
+            </section>
+
+            <section>
+                <section>
+                    <h2>Déroulement du projet</h2>
+                </section>
+
+                <section>
+                    <h3>Les deadlines et les livrables</h3>
+                    <ul>
+                        <li>13 septembre : Deuxième séance d'accompagnement - brouillon rapport d'analyse</li>
+                        <li>27 septembre : Rendu du rapport d'analyse</li>
+                        <li>04 octobre : Retour sur les rapports - début du code</li>
+                        <li>Du 23 au 25 octobre : Immersion (2 séances de suivi)</li>
+                        <li>08 novembre : Dernière séance de suivi pour revoir le code et le rapport</li>
+                        <li>15 novembre : Rendu du code et du rapport</li>
+                        <li>27 novembre : Soutenance</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>Le chef de projet</h3>
+                </section>
+
+
+                <section>
+                    <h3>Proposition de méthodes de travail</h3>
+                    <ul>
+                        <li class="fragment">Fonctions "faciles" <br /> -> pair
+                            programming : 2 sur un poste (de préférence de niveau
+                            différent)
+                        </li>
+                        <li class="fragment">Fonctions "complexes" et initialisation
+                            du projet <br /> -> mob programming : tous sur un poste
+                        </li>
+                    </ul>
+                </section>
+
+
+                <section>
+                    <h3>Petit tips</h3>
+                    <ul>
+                        <li class="fragment">Passez du temps sur l'étude préalable
+                            et la conception générale</li>
+                        <li class="fragment">Cernez vos cas d'utilisations, les
+                            acteurs etc (diagramme CU)</li>
+                        <li class="fragment">L'autre diagramme important est celui
+                            de classes, il doit guider vos développements</li>
+                        <li class="fragment">Priorisez les développements par la
+                            valeur</li>
+                        <li class="fragment"><em>Forte chésion, faible
+                                faible couplage</em></li>
+                    </ul>
+                </section>
+
+            </section>
+
+            <section>
+                <section>
+                    <ul>
+                        <li>Mail pro si question pas urgente : antoine.lecacheur@insee.fr</li>
+                        <li>Mail perso si question urgente : antoine.lecacheur@hotmail.com</li>
+                    </ul>
+                </section>
+
+            </section>
+
+        </div>
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+
+
+    <script>
+        // More info about config & dependencies:
+        // - https://github.com/hakimel/reveal.js#configuration
+        // - https://github.com/hakimel/reveal.js#dependencies
+        Reveal.initialize({
+            dependencies: [{
+                src: 'plugin/markdown/marked.js'
+            }, {
+                src: 'plugin/markdown/markdown.js'
+            }, {
+                src: 'plugin/notes/notes.js',
+                async: true
+            }, {
+                src: 'plugin/highlight/highlight.js',
+                async: true,
+                callback: function () {
+                    hljs.initHighlightingOnLoad();
+                }
+            }],
+            // Display the page number of the current slide
+            slideNumber: true,
+            // Push each slide change to the browser history
+            history: true,
+
+            // Enable slide navigation via mouse wheel
+            mouseWheel: true,
+            // 			width : "80%",
+            // 			height : "80%"
+        });
+        Reveal.configure({ slideNumber: 'c/t' });
+    </script>
+</body>
+
+</html>
