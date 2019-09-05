@@ -38,7 +38,7 @@ git config --global user.email "antoine.lecacheur@hotmail.fr"
 # TP 2
 
 ## Présentation
-
+:arrow_forward: <a href="https://antoinelecacheur.github.io/ENSAI-2A/tp2.html" target="_blank">Diapo TP2</a>
 ## Data Rennes Metropole
 
 L'<a href="https://data.rennesmetropole.fr/explore/dataset/equipement-accessibilite-arrets-bus/api/" target="_blank">url</a> des données géographiques du réseau STAR avec les arrêts physiques.

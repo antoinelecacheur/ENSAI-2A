@@ -1,0 +1,128 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>TP2 - WEB SERVICE</title>
+
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/sky.css">
+
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="lib/css/gc.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css'
+			: 'css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section>
+				<h3>TP2 - WEB SERVICE</h3>
+
+			</section>
+			<section>
+				<section>
+					<h2>Web service</h2>
+				</section>
+				<section>
+					<ul>
+						<li class="fragment">Accessible depuis le web (requêtes HTTP)</li>
+						<li class="fragment">Fait pour les machines : pas d'IHM, format JSON (ou XML)</li>
+                        <li class="fragment">Contrôle ce que l'on rend accessible</li>
+                        <li class="fragment">Interface entre l'extérieur et notre système</li>
+					</ul>
+				</section>
+
+				<section>
+					<h3>Architecture Client - Serveur</h3>
+					<ul>
+						<li class="fragment"><b>Le client = votre machine</b> effectue une requête HTTP</li>
+                        <li class="fragment"><b>Le serveur</b> reçoit la requête du client, et renvoie une réponse HTTP 
+                        avec du contenu au format JSON</li>
+					</ul>
+				</section>
+			</section>
+			<section>
+				<section>
+                    <h3>Requête HTTP</h3>
+                    <b>L'url :</b> <span class="fragment highlight-blue">https://sandbox-api.brewerydb.com/v2/</span><span class="fragment highlight-red">beers/</span><span class="fragment highlight-green">?key=apiKey</span>
+					<ul>
+                        
+                        <li class="fragment">Dans laquelle on peut distinguer <span class="fragment highlight-blue">l'url de base</span>, partagée par toutes les requêtes au web service 
+                            et les <span class="fragment highlight-red">endpoint</span> qui correspondent aux chemins pour accéder à une information métier (beers, breweries...)
+                        </li>
+                        <li class="fragment">La <b>méthode</b> (aussi appelée verbe) : GET, POST, PUT et DELETE (lire, ajouter, modifier et supprimer)</li>
+					</ul>
+				</section>
+
+				<section>
+                        <b>L'url :</b> <span class="fragment highlight-blue">https://sandbox-api.brewerydb.com/v2/</span><span class="fragment highlight-red">beers/</span><span class="fragment highlight-green">?key=apiKey</span> </li>
+					<ul>
+                            <li class="fragment">Les <span class="fragment highlight-green">paramètres de la requête</span> : permet d'affiner votre requête, ou de passer des informations 
+                                    directement dans l'url (clé d'API, nombre de lignes, etc)
+                                </li>
+                                <li class="fragment">Le corps (<b>body</b>) de la requête dans lequel on envoie des données
+                                au format JSON par exemple</li>
+					</ul>
+				</section>
+			</section>
+
+			<section>
+				<h1>Place au TP !</h1>
+			</section>
+
+
+
+
+		</div>
+	</div>
+
+	<script src="lib/js/head.min.js"></script>
+	<script src="js/reveal.js"></script>
+
+
+	<script>
+		// More info about config & dependencies:
+		// - https://github.com/hakimel/reveal.js#configuration
+		// - https://github.com/hakimel/reveal.js#dependencies
+		Reveal.initialize({
+			dependencies: [{
+				src: 'plugin/markdown/marked.js'
+			}, {
+				src: 'plugin/markdown/markdown.js'
+			}, {
+				src: 'plugin/notes/notes.js',
+				async: true
+			}, {
+				src: 'plugin/highlight/highlight.js',
+				async: true,
+				callback: function () {
+					hljs.initHighlightingOnLoad();
+				}
+			}],
+			// Display the page number of the current slide
+			slideNumber: true,
+			// Push each slide change to the browser history
+			history: true,
+
+			// Enable slide navigation via mouse wheel
+			mouseWheel: true,
+			// 			width : "80%",
+			// 			height : "80%"
+		});
+		Reveal.configure({ slideNumber: 'c/t' });
+	</script>
+</body>
+
+</html>
