@@ -23,6 +23,7 @@ git config --global user.email "antoine.lecacheur@hotmail.fr"
 - File > Settings | Tapez dans la recherche <b>proxy</b>, vous devriez arriver dans le menu <b>HTTP Proxy</b>.
 - Sélectionnez "Manual Proxy Configuration". Dans le champ "Host name" saisissez <b>pxcache-02.ensai.fr</b> et dans le champ "Port number" saisissez <b>3128</b>
 - Vous pouvez vérifier que tout est bon en cliquant sur "check connection" et puis en saisissant ```https://www.google.com ```
+- Une fois que vous avez fait cette étape et que tout est bon, vous pouvez alors cliquer sur install requirements, ça devrait fonctionner.. !
 
 # TP 1
 
