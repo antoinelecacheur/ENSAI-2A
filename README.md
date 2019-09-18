@@ -9,8 +9,8 @@ git config --global http.proxy http://pxcache-02.ensai.fr:3128
 
 Vous pouvez également configurer votre identité auprès de git :
 ```
-git config --global user.name "Antoine Lecacheur"
-git config --global user.email "antoine.lecacheur@hotmail.fr"
+git config --global user.name "Prénom Nom"
+git config --global user.email "adresse@mail.fr"
 ```
 
 ## PyCharm
@@ -45,3 +45,45 @@ git config --global user.email "antoine.lecacheur@hotmail.fr"
 ## Data Rennes Metropole
 
 L'<a href="https://data.rennesmetropole.fr/explore/dataset/equipement-accessibilite-arrets-bus/api/" target="_blank">url</a> des données géographiques du réseau STAR avec les arrêts physiques.
+
+
+# TP 4
+
+## Présentation
+
+:open_file_folder: <a href="https://foad-moodle.ensai.fr/course/view.php?id=11#section-5" target="_blank">Sujet et code du tp</a>
+
+## Précisions pour le TP
+
+### Configuration de git bash (encore..!)
+- Configurer vos infos personnelles (comme proposé plus haut), attention il y a une erreur dans le sujet du TP il faut bien configurer `user.email` et `user.name`.
+
+```
+git config --global user.name "Prénom Nom"
+git config --global user.email "adresse@mail.fr"
+```
+
+- Configurer un éditeur de texte au cas où vous oubliez de mettre un message de commit, pour éviter de vous retrouver à lutter contre vim
+
+```
+git config --global core.editor "'\\filer-thinapps.domensai.ecole\thinapps\Notepad64\Notepad++.exe' -multiInst -notabbar -nosession -noPlugin"
+```
+
+#### Raccourcis clavier git bash :
+
+- ctrl + inser = copier le texte sélectionné dans git bash
+- shift + inser = coller du texte dans git bash
+- Flèches haut - bas = parcourir l'historique des lignes de commandes saisies
+
+### Fonctionnalité - Authentification : 4.3
+- Dans compte_service, ajouter une méthode d'authentification qui prend en paramètres pseudo et mot de passe (la méthode find_by_pseudo de la DAO vous simplifie le travail)
+- Repartir de l'exemple de `creation_compte.py` pour implémenter `compte_authentification.py`
+- Utilisez la méthode d'authentification que vous venez de créer pour vérifier que les informations saisies par l'utilisateur sont valides
+- Testez votre méthode d'authentification dans `test_compte.py` avec un pseudo connu et un pseudo inconnu
+
+### Gestion d'un conflit - Merge
+
+Dans le point 5.6 du TP, pour faire apparaître la fenêtre de fusion du fichier :
+- Clic droit sur le fichier contenant les conflits
+- Sélectionner git > Resolve conflicts
+
