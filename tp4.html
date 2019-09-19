@@ -36,24 +36,22 @@
 
 			</section>
 			<section>
-				<section>
-					<h2>Découpage en couches</h2>
-				</section>
+                    <h2>Commandes git</h2>
+            </section>
+            <section>
 				<section>
 					<ul>
-						<li class="fragment">Couche de présentation, IHM (User Interface)</li>
-						<li class="fragment">Couche métier (Business Logic)</li>
-						<li class="fragment">La couche d'accès aux données (Data Access)</li>
+						<li class="fragment"><pre><code>git add .</code></pre>Ajoute tous les fichiers et dossiers du répertoire à l'index git</li>
+						<li class="fragment"><pre><code>git commit -m "message"</code></pre>Ajoute un commit local</li>
+                        <li class="fragment"><pre><code>git remote add origin "MON_URL"</code></pre>Envoie le code de votre dépôt local vers le dépôt distant configuré</li>
 					</ul>
 				</section>
 
 				<section>
-					<h3>Couche de présentation</h3>
 					<ul>
-						<li class="fragment">Permet l'interaction entre un utilisateur et votre application</li>
-						<li class="fragment">Regroupe tout ce qui à trait à l'affichage</li>
-						<li class="fragment"><b>En général :</b> une page web, une application mobile...</li>
-						<li class="fragment"><b>Dans le cadre des projets informatiques :</b> c'est la console</li>
+                        <li class="fragment"><pre><code>git push -u origin master</code></pre>Envoie le code de votre dépôt local vers le dépôt distant configuré</li>
+                        <li class="fragment"><pre><code>git pull</code></pre>Récupérer le code du dépôt distant sur votre dépôt local = git fetch + git merge</li>
+                        <li class="fragment"><pre><code>git clone url_gitlab nom_dossier</code></pre>Clone le dépôt distant dans un dépôt local sur votre machine dans le dossier "nom_dossier"</li>
 					</ul>
 				</section>
 
@@ -72,22 +70,17 @@
 				</section>
 
 				<section>
-					<h3>Couche DAO</h3>
+					<h3>Quelques conseils pour git</h3>
 					<ul>
-						<li class="fragment">Data Access Object</li>
-						<li class="fragment">Répond à la question : <b>Comment stocker nos données "métiers" ?</b></li>
-						<li class="fragment">Classe technique DAO - Persiste les données d'une classe métier</li>
-						<li class="fragment">Permet en particulier de faire le lien avec une base de données</li>
-						<li class="fragment">Expose donc les méthodes <a
-								href="https://fr.wikipedia.org/wiki/CRUD">CRUD</a> : ajouter, lire, modifier ou
-							supprimer des données</li>
+						<li class="fragment">Faites des commits lorsque vous avez avancé sur chaque fonctionnalité</li>
+						<li class="fragment">Évitez de travailler tous sur les mêmes classes, les mêmes fichiers, sinon vous aurez beaucoup de conflits : répartissez / séparez le travail</li>
 					</ul>
 				</section>
 			</section>
 
 			<section>
 				<section>
-					<h3>L'intérêt des couches</h3>
+					<h3>Quelques</h3>
 					<ul>
 						<li class="fragment">On sait qu'une classe DAO implémentera les méthodes create, read, update,
 							delete</li>
@@ -102,79 +95,7 @@
 				</section>
 			</section>
 
-			<section>
-				<section>
-					<h2>TP1 - DAO</h2>
-				</section>
-				<section>
-					<h3>Nouvel IDE : PyCharm</h3>
-					<ul>
-						<li class="fragment">Mieux adapté que Spyder pour le développement d'application</li>
-						<li class="fragment">De nombreux autres IDE existent, Visual Studio Code est également
-							disponible pour les projets infos</li>
-					</ul>
-				</section>
-				<section>
-					<h3>Une librairie pour gérer les connexions à la BDD : <a href="http://initd.org/psycopg/docs/"
-							target="_blank">psycopg2</a></h3>
-				</section>
-				<section>
-					<h3>Petit point sur l'injection SQL</h3>
-					<ul>
-						<li class="fragment"><pre>SELECT * from admins WHERE login='admin' AND password='$password'</pre></li>
-						<li class="fragment">Imaginons qu'on envoie, pour password la valeur : " 'OR 1=1 -- "</li>
-						<li class="fragment"><pre>SELECT * from admins WHERE login='admin' AND password='' OR 1=1</pre></li>
-						<li class="fragment">L'utilisateur arrive alors à s'authentifier et accéder à l'application !
-						</li>
-					</ul>
-				</section>
-
-				<section>
-					<h3>Différents moyens d'empêcher l'injection SQL</h3>
-					<ul>
-						<li class="fragment">Échapper les caractères spéciaux</li>
-						<li class="fragment">Utiliser une requête préparée </li>
-						<li class="fragment">psycopg2 s'occupe d'échapper les caractères spéciaux pour nous !</li>
-					</ul>
-				</section>
-
-			</section>
-
-			<section>
-				<section>
-					<h3>Récupérer le TP : introduction à GIT</h3>
-					<ul>
-						<li class="fragment">Logiciel de gestion de versions décentralisé</li>
-						<li class="fragment">Gérer un dépôt de fichiers partagé par plusieurs personnes</li>
-						<li class="fragment">Chaque ajout de fichiers (<b>commit</b>) est enregistrée en tant que
-							nouvelle version, on conserve donc l'historique de tous les changements</li>
-						<li class="fragment">Gérer les conflits lorsque plusieurs personnes travaillent sur le même
-							projet</li>
-					</ul>
-				</section>
-
-				<section>
-					<h3>Un repository GIT ?</h3>
-					<ul>
-						<li class="fragment">Repository = dépôt</li>
-						<li class="fragment">Repository local et repository distant</li>
-						<li class="fragment">Chaque ajout de fichiers (<b>commit</b>) est enregistrée en tant que
-							nouvelle version, on conserve donc l'historique de tous les changements</li>
-						<li class="fragment">Gérer les conflits lorsque plusieurs personnes travaillent sur le même
-							projet</li>
-					</ul>
-				</section>
-
-				<section>
-					<h3>Les commandes git pour le TP via git bash</h3>
-					<ul>
-						<li class="fragment">Cloner un répertoire <b>distant</b> dans un dossier <b>local</b><pre><code>git clone url-github nom-de-dossier-pour-cloner</code></pre></li>
-						<li class="fragment">Ajoute tous les fichiers du répertoire à l'index Git <pre><code>git add .</code></pre></li>
-						<li class="fragment">Envoie l'ensemble des fichiers de l'index sur le repository local<pre><code>git commit -m "message de commit"</code></pre></li>
-					</ul>
-				</section>
-			</section>
-
+			
 			<section>
 				<h1>Place au TP !</h1>
 			</section>
