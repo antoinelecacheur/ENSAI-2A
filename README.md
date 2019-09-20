@@ -50,6 +50,7 @@ L'<a href="https://data.rennesmetropole.fr/explore/dataset/equipement-accessibil
 # TP 4
 
 ## Présentation
+:arrow_forward: <a href="https://antoinelecacheur.github.io/ENSAI-2A/tp4.html" target="_blank">Diapo TP4</a>
 
 :open_file_folder: <a href="https://foad-moodle.ensai.fr/course/view.php?id=11#section-5" target="_blank">Sujet et code du tp</a>
 

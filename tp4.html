@@ -80,16 +80,23 @@
 
 			<section>
 				<section>
-					<h3>Quelques</h3>
+					<h3>Tests unitaires</h3>
+					Teste une méthode, un comportement précis de l'application, généralement plusieurs parties :
 					<ul>
-						<li class="fragment">On sait qu'une classe DAO implémentera les méthodes create, read, update,
-							delete</li>
-						<li class="fragment">On peut donc les appeler dans une autre couche</li>
-						<li class="fragment">On ne se soucie pas de l'implémentation de ces méthodes</li>
-						<li class="fragment">Si l'implémentation change, ça ne change pas les appels qu'on en fait dans
-							les autres couches</li>
-						<li class="fragment"><b>Exemple : </b>changer de gestionnaire de BDD</li>
-						<li class="fragment">Facilite le travail en groupe</li>
+						<li class="fragment">Initialisation, "mise en situation" : on génère les données utiles pour le test (BDD ou objets python)</li>
+						<li class="fragment">Traitement : on applique la méthode, le traitement à tester</li>
+						<li class="fragment">Assertion : on vérifie que le traitement donne le résultat voulu</li>
+						<li class="fragment">Nettoyage post-test : suppression des objets créés en BDD ou autres</li>
+					</ul>
+
+				</section>
+
+				<section>
+					<h3>Tests</h3>
+					<ul>
+						<li class="fragment">Les tests unitaires garantissent qu'une méthode fonctionne dans un cas très précis</li>
+						<li class="fragment">Multiplier les tests pour inclure plus de comportements</li>
+						<li class="fragment">Prendre en compte les autres types de tests</li>
 					</ul>
 
 				</section>
