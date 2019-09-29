@@ -1,0 +1,139 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>TP4 - Git et tests unitaires</title>
+
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/sky.css">
+
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="lib/css/gc.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css'
+			: 'css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section>
+				<h3>Git</h3>
+				<ul>
+					<li>Dépôt distant (sur gitlab ou github) - partagé entre les utilisateurs</li>
+					<li>Dépôts locaux - sur chacune de vos machines</li>
+				</ul>
+
+			</section>
+			<section>
+                    <h2>Commandes git</h2>
+            </section>
+            <section>
+				<section>
+					<ul>
+						<li class="fragment"><pre><code>git add .</code></pre>Ajoute tous les fichiers et dossiers du répertoire à l'index git</li>
+						<li class="fragment"><pre><code>git commit -m "message"</code></pre>Ajoute un commit local</li>
+                        <li class="fragment"><pre><code>git remote add origin "MON_URL"</code></pre>Envoie le code de votre dépôt local vers le dépôt distant configuré</li>
+					</ul>
+				</section>
+
+				<section>
+					<ul>
+                        <li class="fragment"><pre><code>git push -u origin master</code></pre>Envoie le code de votre dépôt local vers le dépôt distant configuré</li>
+                        <li class="fragment"><pre><code>git pull</code></pre>Récupérer le code du dépôt distant sur votre dépôt local = git fetch + git merge</li>
+                        <li class="fragment"><pre><code>git clone url_gitlab nom_dossier</code></pre>Clone le dépôt distant dans un dépôt local sur votre machine dans le dossier "nom_dossier"</li>
+					</ul>
+				</section>
+
+				<section>
+					<h3>Quelques conseils pour git</h3>
+					<ul>
+						<li class="fragment">Faites des commits lorsque vous avez avancé sur chaque fonctionnalité</li>
+						<li class="fragment">Évitez de travailler tous sur les mêmes classes, les mêmes fichiers, sinon vous aurez beaucoup de conflits : répartissez / séparez le travail</li>
+					</ul>
+				</section>
+			</section>
+
+			<section>
+				<section>
+					<h3>Tests unitaires</h3>
+					Teste une méthode, un comportement précis de l'application, généralement plusieurs parties :
+					<ul>
+						<li class="fragment">Initialisation, "mise en situation" : on génère les données utiles pour le test (BDD ou objets python)</li>
+						<li class="fragment">Traitement : on applique la méthode, le traitement à tester</li>
+						<li class="fragment">Assertion : on vérifie que le traitement donne le résultat voulu</li>
+						<li class="fragment">Nettoyage post-test : suppression des objets créés en BDD ou autres</li>
+					</ul>
+
+				</section>
+
+				<section>
+					<h3>Tests</h3>
+					<ul>
+						<li class="fragment">Les tests unitaires garantissent qu'une méthode fonctionne dans un cas très précis</li>
+						<li class="fragment">Multiplier les tests pour inclure plus de comportements</li>
+						<li class="fragment">Prendre en compte les autres types de tests</li>
+					</ul>
+
+				</section>
+			</section>
+
+			
+			<section>
+				<h1>Place au TP !</h1>
+			</section>
+
+
+
+
+		</div>
+	</div>
+
+	<script src="lib/js/head.min.js"></script>
+	<script src="js/reveal.js"></script>
+
+
+	<script>
+		// More info about config & dependencies:
+		// - https://github.com/hakimel/reveal.js#configuration
+		// - https://github.com/hakimel/reveal.js#dependencies
+		Reveal.initialize({
+			dependencies: [{
+				src: 'plugin/markdown/marked.js'
+			}, {
+				src: 'plugin/markdown/markdown.js'
+			}, {
+				src: 'plugin/notes/notes.js',
+				async: true
+			}, {
+				src: 'plugin/highlight/highlight.js',
+				async: true,
+				callback: function () {
+					hljs.initHighlightingOnLoad();
+				}
+			}],
+			// Display the page number of the current slide
+			slideNumber: true,
+			// Push each slide change to the browser history
+			history: true,
+
+			// Enable slide navigation via mouse wheel
+			mouseWheel: true,
+			// 			width : "80%",
+			// 			height : "80%"
+		});
+		Reveal.configure({ slideNumber: 'c/t', pdfSeparateFragments: false });
+	</script>
+</body>
+
+</html>
