@@ -337,7 +337,7 @@ with open('./test2.xml', 'wb') as xmlfile:
 - Il s'agit littéralement d'extraction de données sur des sites web via un script ou un programme
 - C'est a dire un document balisé qui est donc parsable par différentes librairies afin de récupérer les informations que l'on veut.
 
-- Beaucoup de librairies existent, nous avons présenté dans le tp3 la librairie lxhtml pour l'extraction de données depuis l'html
+- Beaucoup de librairies existent, nous avons présenté dans le tp3 la librairie lxml pour l'extraction de données depuis l'html
 
 #### Exemple avec une page wikipédia
 
