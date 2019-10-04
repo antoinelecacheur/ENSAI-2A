@@ -1,4 +1,4 @@
-# Retour sur les TPs
+ # Retour sur les TPs
 
 ## TP 1 - DAO : utilisation de psycopg2
 
@@ -79,6 +79,9 @@ finally:
 
 ## TP2 - Webservices : récupération et envoi de données
 
+<details>
+<summary>Généralités sur les web-services</summary>
+
 - Les webservices sont des ressources accessibles via des requêtes HTTP. Ils fonctionnent comme des boites noires : Ils disposent d'une API (application programming interface) pour laquelle l'on ne connait que l'entrée/sortie (Boite Noire)
 
 - Par différentes requêtes (GET et POST pour la plupart), vous pouvez récupérer des données et échanger avec un serveur distant par sa couche Controller. Ces requêtes peuvent avoir différents type : changer l'état de la base de données par transmission de l'information coté DAO, récupération de l'état de la base de données, ou encore récupération de l'état du serveur par exemple (Healthcheck).
@@ -94,6 +97,8 @@ Insomnia est un client [REST](https://fr.wikipedia.org/wiki/Representational_sta
   - Avec en rouge: l'ajout d'une nouvelle requête
   - Avec en bleu : l'url où effectuer la requête
   - Avec en vert : la zone où ajouter les éventuels paramètres
+
+  </details>
 
 ### Récupération de données avec Requests
 
@@ -145,7 +150,8 @@ response = requests.get(
 data = response.json()['records']
 ```
 
-### Créer son propre webservice avec la bibliothèque Flask
+<details>
+<summary>Créer son propre webservice avec la bibliothèque Flask</summary>
 
 - Importez la librairie dans une Classe présente dans le dossier controller de votre projet
 
@@ -175,10 +181,33 @@ from flask import Flask, request
 """ retour par defaut (avec import json préalable) """
  return json.dumps({"result": "success"})
 ```
+</details>
 
 ## TP 3 - Formats de données - Web Scraping
 
 Il existe différents types de formats de données structurés non SQL, ils sont principalement utilisés pour l'échange de données et la sauvegarde de données
+
+### Insertion en BDD du JSON retourné par une requête à un web-service
+
+- Reprendre la correction de la Q7. 
+
+:warning: La main contient une erreur : :warning:
+
+```python
+    print('Création du fichier output/frequentation_parheure.csv à partir de files/frequentation_parheure.json')
+    with open('files/frequentation_parheure.json', 'r', encoding="utf-8") as jsonfile:
+```
+Les 2 premières lignes viennent d'un copier-coller. En aucun cas dans cette main on ne manipule des fichiers, qu'ils soient csv ou json.
+
+- La démarche est simple, il suffit de faire une requête comme au TP 2, de récupérer le résultat dans un objet métier python (ou une liste d'objets selon la requête) ex : Bière.
+- Puis on utilise les méthodes de la DAO pour insérer les objets en base.
+
+:warning: Points de vigilance : :warning:
+- Attention au type python des objets que vous récupérez. Si vous essayez d'insérer en BDD une chaîne de caractères dans une colonne qui ne contient que des entiers, ça risque de mal se passer !
+- Si vous essayez d'insérer en base un objet dont la clé primaire existe déjà, vous allez également avoir des problèmes.
+
+<details>
+<summary>Rappels sur les formats de données</summary>
 
 ### Différents formats de données
 
@@ -234,6 +263,11 @@ Blanche Neige et le chasseur ;Cesson-Sevigne;Sanders Rupert;35051.0;10.0
 ```
 
 Format très classique dans le monde de la donnée et de la sauvegarde.
+
+</details>
+
+<details>
+<summary>Rappels sur lecture / écriture différents formats de fichiers en python</summary>
 
 ### Lire les données
 
@@ -330,6 +364,11 @@ with open('./test2.xml', 'wb') as xmlfile:
     xmlfile.write(etree.tostring(result, pretty_print=True))
 ```
 
+</details>
+
+<details>
+<summary>Quelques infos sur le webscrapping</summary>
+
 ### Web Scraping avec Python
 
 #### Rappel : Le webscraping c'est quoi?
@@ -367,6 +406,7 @@ for result in sorted(
         medalTotals.items(), key=lambda x:x[1],reverse=True):
         print '%s:%s' % result
 ```
+</details>
 
 ## TP 4 - Git : étapes de configuration sur les postes
 
