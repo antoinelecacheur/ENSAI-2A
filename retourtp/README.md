@@ -205,6 +205,7 @@ Les 2 premières lignes viennent d'un copier-coller. En aucun cas dans cette mai
 :warning: Points de vigilance : :warning:
 - Attention au type python des objets que vous récupérez. Si vous essayez d'insérer en BDD une chaîne de caractères dans une colonne qui ne contient que des entiers, ça risque de mal se passer !
 - Si vous essayez d'insérer en base un objet dont la clé primaire existe déjà, vous allez également avoir des problèmes.
+- Ne pas oublier que les erreurs dans la console sont là pour vous aider et vous orienter sur la manière de corriger votre code. Et si vous ne comprenez pas l'erreur, le mieux reste de la rechercher sur internet, c'est ça le vrai travail de développeur !
 
 <details>
 <summary>Rappels sur les formats de données</summary>
