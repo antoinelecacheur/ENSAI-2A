@@ -456,3 +456,31 @@ ssh-keygen -t rsa -b 2048
 - Dans gitlab, collez la clé puis cliquez sur Add key. La clé ssh est conservée. Vous n’aurez donc à la configurer qu’une fois à l’Ensai. Par contre si vous travaillez avec un ordinateur perso, il faudra créer une clé ssh dessus (et l’ajouter sur gitlab).
 
 - Une fois cette configuration effectuée, vous pouvez reprendre le fil du TP.
+
+### Les commandes classiques dans git bash pour interagir avec GitLab
+
+<details>
+	<summary>
+		Quelques astuces pour utiliser git bash
+	</summary>
+	
+	- La commande `cd chemin` vous permet de naviguer dans l'arborescence de vos fichiers, avant d'utiliser des commandes git dans git bash, il faut vous placer dans le dossier de votre projet local.
+	- La commande `cd ..` vous permet de naviguer au dossier parent (ie: passer de `dossierParent/dossierEnfant` à `dossierParent`.
+	- Utilisez la tabulation pour compléter si vous tapez le début du chemin (ie: tab sur la chaîne `dossieren` complètera automatiquement à `dossierEnfant`.
+</details>
+
+#### Je viens d'ajouter une fonctionnalité, je veux envoyer mes modifications sur GitLab
+
+- J'ajoute mes fichiers à l'index git, pour qu'il trace leurs modifications : `git add .`
+- Je commit ces fichiers pour créer une nouvelle version avec un message sur le contenu : `git commit -m "Message de commit"
+- J'envoie mes modifications sur GitLab : `git push`
+
+Si quelqu'un a effectué des modifications que vous n'avez pas sur votre poste en local, vous aurez un message dans git bash pour prévenir que les modifications n'ont pas pu être envoyées, il faut d'abord mettre à jour votre dépôt local.
+
+#### Je récupère les modifications présentes sur le dépôt distant
+
+- Je récupère les modifications et les fusionne avec ma version locale du code : `git pull` (qu'on pourrait décomposer en `git fetch` puis `git merge origin/master`)
+
+Si en local vous avez modifié les mêmes lignes qui ont été modifiées sur le dépôt distant, vous rencontrerez un conflit lors de la fusion. Reportez-vous au sujet du TP 4 pour voir les différentes étapes et possibilités pour gérer ces conflits.
+
+
