@@ -464,9 +464,9 @@ ssh-keygen -t rsa -b 2048
 		Quelques astuces pour utiliser git bash
 	</summary>
 	
-	- La commande `cd chemin` vous permet de naviguer dans l'arborescence de vos fichiers, avant d'utiliser des commandes git dans git bash, il faut vous placer dans le dossier de votre projet local.
-	- La commande `cd ..` vous permet de naviguer au dossier parent (ie: passer de `dossierParent/dossierEnfant` à `dossierParent`.
-	- Utilisez la tabulation pour compléter si vous tapez le début du chemin (ie: tab sur la chaîne `dossieren` complètera automatiquement à `dossierEnfant`.
+- La commande `cd chemin` vous permet de naviguer dans l'arborescence de vos fichiers, avant d'utiliser des commandes git dans git bash, il faut vous placer dans le dossier de votre projet local.
+- La commande `cd ..` vous permet de naviguer au dossier parent (ie: passer de `dossierParent/dossierEnfant` à `dossierParent`.
+- Utilisez la tabulation pour compléter si vous tapez le début du chemin (ie: tab sur la chaîne `dossieren` complètera automatiquement à `dossierEnfant`.
 </details>
 
 #### Je viens d'ajouter une fonctionnalité, je veux envoyer mes modifications sur GitLab
