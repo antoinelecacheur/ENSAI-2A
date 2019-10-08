@@ -472,7 +472,7 @@ ssh-keygen -t rsa -b 2048
 #### Je viens d'ajouter une fonctionnalité, je veux envoyer mes modifications sur GitLab
 
 - J'ajoute mes fichiers à l'index git, pour qu'il trace leurs modifications : `git add .`
-- Je commit ces fichiers pour créer une nouvelle version avec un message sur le contenu : `git commit -m "Message de commit"
+- Je commit ces fichiers pour créer une nouvelle version avec un message sur le contenu : `git commit -m "Message de commit"`
 - J'envoie mes modifications sur GitLab : `git push`
 
 Si quelqu'un a effectué des modifications que vous n'avez pas sur votre poste en local, vous aurez un message dans git bash pour prévenir que les modifications n'ont pas pu être envoyées, il faut d'abord mettre à jour votre dépôt local.
